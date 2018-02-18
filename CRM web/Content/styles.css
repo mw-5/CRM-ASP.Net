@@ -1,0 +1,48 @@
+﻿:root
+{
+    --color-background: rgb(183, 216, 41);
+    --color-background2: rgb(208, 255, 3);
+    --color-accent: rgb(55, 28, 30);
+    --color-accent-light: rgb(159, 80, 9);
+}
+
+html
+{
+    background: -moz-radial-gradient(var(--color-background2) 0%, var(--color-background) 100%) center center fixed;
+    background: -webkit-radial-gradient(var(--color-background2) 0%, var(--color-background) 100%) center center fixed;
+    background: -o-radial-gradient(var(--color-background2) 0%, var(--color-background) 100%) center center fixed;
+    background: radial-gradient(var(--color-background2) 0%, var(--color-background) 100%) center center fixed;
+    font-family: cursive;
+}
+
+input[type=button], input[type=submit]
+{
+    height: 20px;
+    color: white;
+    font-size: 0.75em;
+    background: -moz-linear-gradient(var(--color-accent-light) 0%, var(--color-accent) 15%);
+    background: -webkit-linear-gradient(var(--color-accent-light) 0%, var(--color-accent) 15%);
+    background: -o-linear-gradient(var(--color-accent-light) 0%, var(--color-accent) 15%);
+    background: linear-gradient(var(--color-accent-light) 0%, var(--color-accent) 15%);
+    border: 0 none;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    margin: 2px;
+}
+input[type=button]:hover, input[type=submit]:hover
+{
+    color: blanchedalmond;
+}
+
+label
+{
+    color: var(--color-accent);
+}
+
+.lbl
+{
+    width: 100px;
+    text-align: right;
+    display: inline-block;
+}

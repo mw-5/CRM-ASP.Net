@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<root>
+  <connectionString>
+    <server>localhost</server>
+    <databaseName>crm_db</databaseName>
+    <user>crm_user</user>
+    <password>123</password>
+  </connectionString>
+  <pathCustomerFolders>D:\CRM\Customers</pathCustomerFolders>
+  <!-- language-tag: default = English, further options: es, de -->
+  <language>default</language>
+</root>

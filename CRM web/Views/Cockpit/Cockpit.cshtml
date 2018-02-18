@@ -1,0 +1,90 @@
+﻿@{ 
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CRM</title>    
+    <link href="~/Content/cockpit.css" rel="stylesheet"/>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+    <div id="leftBorder"></div>
+    <div id="containerCenter">
+        <div>
+            <input type="button" value="@Resources.Strings.GoToStart" onclick="goToStart();" />
+            <input type="button" value="@Resources.Strings.GoToListOfCustomers" onclick="goToListOfCustomers();" />
+            <label id="header">@ViewBag.Company</label>
+            <br>
+            <div id="searchBox">
+                <input id="txtSearch" type="text" />
+                <input type="image" src="~/Resources/Search-icon.png" id="searchButton" onclick="search('@Resources.Strings.MsgSelectCid');"/>
+            </div>
+        </div>
+        <div class="regionSpace">
+            <table id="tblMasterData" class="vatib tbl">
+                <tr><td class="lblBorder cellLbl">@Resources.Strings.Cid</td><td id="lblCid" class="lblBorder cellVal">@ViewBag.Cid</td></tr>
+                <tr><td class="lblBorder cellLbl">@Resources.Strings.Address</td><td class="lblBorder cellVal">@ViewBag.Address</td></tr>
+                <tr><td class="lblBorder cellLbl">@Resources.Strings.Zip</td><td class="lblBorder cellVal">@ViewBag.Zip</td></tr>
+                <tr><td class="lblBorder cellLbl">@Resources.Strings.City</td><td class="lblBorder cellVal">@ViewBag.City</td></tr>
+                <tr><td class="lblBorder cellLbl">@Resources.Strings.Country</td><td class="lblBorder cellVal">@ViewBag.Country</td></tr>
+                <tr><td class="lblBorder cellLbl">@Resources.Strings.ContractId</td><td class="lblBorder cellVal">@ViewBag.ContractId</td></tr>
+                <tr><td class="lblBorder cellLbl">@Resources.Strings.ContractDate</td><td class="lblBorder cellVal">@ViewBag.ContractDate</td></tr>
+            </table>
+            <div class="vatib">
+                <div class="scrollingtable tblHeightCp">
+                    <div>
+                        <div>
+                            <table id="tblContactPersons">
+                                <!-- <caption>contact persons</caption>-->
+                                <thead></thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="vatib">
+                    <input type="button" class="btnList" value="@Resources.Strings.NewContactPerson" onclick="newContactPerson('@Resources.Strings.MsgSelectCid');" /><br>                    
+                    <input type="button" class="btnList" value="@Resources.Strings.EditContactPerson" onclick="editContactPerson('@Resources.Strings.MsgSelectContactPerson');" />                        
+                    <input type="text" id="idSelectedContactPerson" hidden />                
+                </div>
+            </div>
+        </div>
+        <div class="regionSpace">
+            <div class="scrollingtable tblHeightNotes">
+                <div>
+                    <div>
+                        <table id="tblNotes">
+                            <thead></thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="vatib">
+                <input type="button" class="btnList" value="@Resources.Strings.NewNote" onclick="newNote('@Resources.Strings.MsgSelectCid');" /><br>   
+                <input type="button" class="btnList" value="@Resources.Strings.EditNote" onclick="editNote('@Resources.Strings.MsgSelectNote');" /><br>
+                <input type="button" class="btnList" value="@Resources.Strings.OpenAttachment" onclick="openAttachment('@Resources.Strings.MsgSelectNote');" />
+                <input type="text" id="idSelectedNote" hidden />
+            </div>
+        </div>
+    </div>    
+    <script src="~/Scripts/table.js"></script>
+    <script src="~/Scripts/cockpit.js"></script>    
+    <script>
+        cid = document.getElementById("lblCid").innerHTML;
+        if (cid != "")
+        {
+            var vColsCp = ["Forename", "Surname", "Gender", "Email", "Phone"];
+            $.post({ url: '/api/WebService/ContactPersons?cid=' + cid, success: function (data) { buildTable(data, 'tblContactPersons', 'col_Id', 'idSelectedContactPerson', vColsCp); } });
+
+            var vColsNotes = ["CreatedBy", "EntryDate", "Memo", "Category", "Attachment"];
+            $.post({ url: '/api/WebService/Notes?cid=' + cid, success: function (data) { buildTable(data, 'tblNotes', 'col_Id', 'idSelectedNote', vColsNotes); } });
+        }
+    </script>
+</body>
+</html>

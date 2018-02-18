@@ -1,0 +1,14 @@
+﻿@import "styles.css";
+@import "table.css";
+
+#header
+{
+    width: 600px;
+    display: inline-block;
+    text-align: center;
+}
+
+.tblHeight
+{
+    max-height: 752px;
+}

@@ -1,0 +1,93 @@
+﻿@import "styles.css";
+
+:root
+{
+    -moz-animation-duration: 1s;
+}
+
+.rct
+{
+    background-color: var(--color-accent);
+    height: 40px;
+    width: 125px;
+    z-index: -1;
+    position: fixed;
+    left: 80px;
+}
+
+#rctCockpit
+{
+    top: 65px;
+}
+
+#rctCustomers
+{
+    top: 137px;
+}
+
+#rctRefresh
+{
+    top: 209px;
+}
+
+.container
+{
+    position: fixed;
+    left: 80px;
+    top: 25px;
+}
+
+input[type=button]
+{
+    margin-top: 50px;
+    margin-left: 25px;
+    width: 75px;
+}
+
+.ani-cockpit
+{
+    animation: move-cockpit 1s 1;
+}
+
+@-webkit-keyframes move-cockpit
+{
+    from: {left: 2000px;}
+    to: {left: 80px;}
+}
+@keyframes move-cockpit
+{
+    from: {left: 2000px;}
+    to: {left: 80px;}
+}
+
+.ani-customers
+{
+    animation: move-customers 1s 1;
+}
+
+@-webkit-keyframes move-customers
+{
+    from: {left: 2000px; top: 1100px;}
+    to: {left: 80px; top: 137px;}
+}
+keyframes move-customers
+{
+    from: {left: 2000px; top: 1100px;}
+    to: {left: 80px; top: 137px;}
+}
+
+.ani-refresh
+{
+    animation: move-refresh 1s 1;
+}
+
+@-webkit-keyframes move-refresh
+{
+    from: {top: 1100px;}
+    to: {top: 209px;}
+}
+keyframes move-refresh
+{
+    from: {top: 1100px;}
+    to: {top: 209px;}
+}

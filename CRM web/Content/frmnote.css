@@ -1,0 +1,54 @@
+﻿@import "styles.css";
+
+#txtNote
+{
+    width: 253px;
+    height: 65px;
+}
+
+.container
+{
+    margin-top: 20px;
+    margin-left: 40px;
+    width: 350px;
+    text-align: right;
+}
+
+#lblNote
+{
+    text-align: left;
+    display: inline-block;
+    width: 253px;
+}
+
+input[type=text]
+{
+    width: 191px;
+}
+
+#lblAttachment
+{
+    display: inline-block;
+    width: 150px;
+    overflow: visible;
+    text-align: left;
+}
+
+input[type=file]
+{
+    display: inline;
+    width: 150px;
+    overflow: visible;
+}
+
+.btnRemove
+{
+     text-align: left;
+    margin-left: 200px;
+}
+
+.btnSubmit
+{
+    text-align: left;
+    margin-left: 155px;
+}

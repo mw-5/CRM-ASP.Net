@@ -1,0 +1,50 @@
+﻿@model CRM_web.Models.NoteViewModel
+@{ 
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CRM</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="~/Content/frmnote.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container"> 
+        <form method="post" action="~/FrmNote/Submit" enctype="multipart/form-data">
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(false)
+            <input type="text" name="id" value="@Model.Id" hidden />
+            <input type="text" name="cid" value="@Model.Cid" hidden />
+            <div>
+                <label id="lblNote">@Resources.Strings.Note</label>
+                <br>
+                <textarea id="txtNote" name="memo">@Model.Memo</textarea>
+            </div>
+            <div>
+                <label class="lbl">@Resources.Strings.Category</label>
+                <input type="text" name="category" value="@Model.Category" />
+            </div>
+            <div>
+                 <br>
+                 <label class="lbl">@Resources.Strings.Attachment:</label>
+                 <label id="lblAttachment">@Model.Attachment</label>
+                 <input id="valAttachment" type="text" value="@Model.Attachment" hidden />
+                 <br>
+                 @Resources.Strings.Attach: <span id="containerAttachmentFile"><input type="file" id="AttachmentFile" name="AttachmentFile" /></span>                                                
+                 <div class="btnRemove">
+                    <input type="button" value="@Resources.Strings.Remove" onclick="removeAttachment();" />
+                 </div>                            
+                <br>
+            </div>
+            <br>
+            <div class="btnSubmit">
+                <input type="submit" value="@Resources.Strings.Submit"/>
+            </div>
+        </form>
+    </div>
+    <script src="~/Scripts/frmnote.js"></script>
+</body>
+</html>

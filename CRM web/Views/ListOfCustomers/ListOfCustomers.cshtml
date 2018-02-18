@@ -1,0 +1,44 @@
+﻿@{ 
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CRM</title>
+    <link href="~/Content/listofcustomers.css" rel="stylesheet"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+    <div> 
+        <label id="header">@Resources.Strings.ListOfCustomers</label>
+        <br><br>
+        <input type="text" id="selectedCid" hidden />
+        <input type="button" id="goToStart" value="@Resources.Strings.GoToStart" onclick="goToStart();" />
+        <input type="button" id="showCustomerInCockpit" value="@Resources.Strings.ShowCustomerInCockpit" onclick="showCustomerInCockpit('@Resources.Strings.MsgSelectCustomer');" />
+        <input type="button" id="newCustomer" value="@Resources.Strings.NewCustomer" onclick="newCustomer();" />
+        <input type="button" id="editCustomer" value="@Resources.Strings.EditCustomer" onclick="editCustomer('@Resources.Strings.MsgSelectCustomer');" />
+        <br><br>                
+    </div>
+    <div class="scrollingtable tblHeight">
+        <div>
+            <div>
+                <table id="tblCustomers">
+                    <thead></thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="~/Scripts/table.js"></script>
+    <script src="~/Scripts/listofcustomers.js"></script>
+    <script>
+        $(function () {
+            var vCols = ["Cid", "Company", "Address", "Zip", "City", "Country", "ContractId", "ContractDate"];
+            $.post({ url: '/api/WebService/Customers', success: function (data) { buildTable(data, 'tblCustomers', 'col_Cid', 'selectedCid', vCols); } });
+        });
+    </script>
+</body>
+</html>

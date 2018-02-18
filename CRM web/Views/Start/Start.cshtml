@@ -1,0 +1,27 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CRM</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="~/Content/start.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="rctCockpit" class="rct ani-cockpit"></div>
+    <div id="rctCustomers" class="rct ani-customers"></div>
+    <div id="rctRefresh" class="rct ani-refresh"></div>
+
+    <div class="container">
+        <input type="button" value="@Resources.Strings.Cockpit" onclick="goToCockpit();" />
+        <br>
+        <input type="button" value="@Resources.Strings.ListOfCustomers" onclick="goToListOfCustomers();" />
+        <br>
+        <input type="button" value="@Resources.Strings.Refresh" />
+    </div>
+    <script src="~/Scripts/start.js"></script>
+</body>
+</html>

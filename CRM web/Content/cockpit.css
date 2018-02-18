@@ -1,0 +1,94 @@
+﻿@import "styles.css";
+@import "table.css";
+
+#leftBorder
+{
+    display: inline-block;
+    min-width: 50px;
+}
+
+#containerCenter
+{
+    display: inline-block;
+}
+
+#header
+{
+    margin-left: 60px;
+}
+
+#searchBox
+{
+    margin-left: 40px;
+    margin-top: 20px;
+}
+
+#searchButton
+{
+    height: 23px;
+    width: 23px;
+    vertical-align: bottom;
+}
+
+#tblMasterData
+{
+    margin-right: 50px;
+    width: 400px;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+.lblBorder
+{
+    border-style: solid;
+    border-color: black;
+    border-width: 2px;
+    text-align: center;
+    color: white;
+    background-color: var(--color-accent);
+}
+.cellLbl
+{
+    width: 100px;
+}
+.cellVal
+{
+    min-width: 300px;
+}
+
+.vatib
+{
+    display: inline-block;
+    vertical-align: top;
+}
+
+.regionSpace
+{
+    margin-top: 30px;
+}
+
+.btnList
+{
+    width: 134px;
+}
+
+#listCp
+{
+    width: 550px;
+    display: inline-block;
+}
+
+#listNotes
+{
+    width: 1000px;
+    display: inline-block;
+}
+
+.tblHeightCp
+{
+    max-height: 180px;
+}
+
+.tblHeightNotes
+{
+    max-height: 550px;
+}

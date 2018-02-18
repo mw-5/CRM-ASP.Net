@@ -1,0 +1,50 @@
+﻿@model CRM_web.Models.ContactPersonViewModel
+@{ 
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CRM</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/Content/frmcontactperson.css" />
+</head>
+<body>
+    <div class="container"> 
+        <form method="post" action="~/FrmContactPerson/Submit">
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(false)
+            <input type="text" name="id" value="@Model.Id" hidden />
+            <input type="text" name="cid" value="@Model.Cid" hidden />
+            <div>
+                <label class="lbl">@Resources.Strings.Forename</label>
+                <input type="text" name="forename" value="@Model.Forename" />
+            </div>
+            <div>
+                <label class="lbl">@Resources.Strings.Surname</label>
+                <input type="text" name="surname" value="@Model.Surname" />
+            </div>
+            <div>
+                <label class="lbl">@Resources.Strings.Gender</label>           
+                @Html.DropDownListFor(m => m.Gender, Model.GenderItems)
+            </div>
+            <div>
+                <label class="lbl">@Resources.Strings.Email</label>
+                <input type="text" name="email" value="@Model.Email" />
+                @Html.ValidationMessageFor(model => model.Email)
+            </div>
+            <div>
+                <label class="lbl">@Resources.Strings.Phone</label>
+                <input type="text" name="phone" value="@Model.Phone" />
+            </div>
+            <div>
+                @Html.CheckBoxFor(Model => Model.MainContact)
+                <label>@Resources.Strings.MainContact</label>
+            </div>
+            <input type="submit" />
+        </form>
+    </div>
+</body>
+</html>

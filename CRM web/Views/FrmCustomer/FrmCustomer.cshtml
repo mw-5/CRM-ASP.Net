@@ -1,0 +1,65 @@
+﻿@model CRM_web.Models.CustomerViewModel
+@{ 
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CRM</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="~/Content/frmcustomer.css" rel="stylesheet" />
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    
+</head>
+<body>
+    <div>         
+        <form action="~/FrmCustomer/Submit" method="post">      
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(false)
+            <div>
+                <label>@Resources.Strings.Cid</label>
+                <label>@Model.Cid</label>
+                <input type="text" name="Cid" value="@Model.Cid" hidden />
+            </div>
+            <div>
+                <label>@Resources.Strings.Company</label>
+                <input type="text" name="company" value="@Model.Company" />
+            </div>
+            <div>
+                <label>@Resources.Strings.Address</label>
+                <input type="text" name="address" value="@Model.Address" />
+            </div>
+            <div>
+                <label>@Resources.Strings.Zip</label>
+                <input type="text" name="zip" value="@Model.Zip" />
+            </div>
+            <div>
+                <label>@Resources.Strings.City</label>
+                <input type="text" name="city" value="@Model.City" />
+            </div>
+            <div>
+                <label>@Resources.Strings.Country</label>
+                <input type="text" name="country" value="@Model.Country" />
+            </div>
+            <div>
+                <label>@Resources.Strings.ContractId</label>
+                <input type="text" name="contractId" value="@Model.ContractId" />
+            </div>
+            <div>
+                <label>@Resources.Strings.ContractDate</label>
+                <input type="date" id="contractDate" name="contractDate" value="@Model.ContractDate" />
+            </div>
+            <input type="submit" />
+        </form>        
+    </div>
+    <script>
+        $(function(){
+            $("#contractDate").datepicker({dateFormat: "yy-mm-dd"});
+        });
+    </script>
+</body>
+</html>
